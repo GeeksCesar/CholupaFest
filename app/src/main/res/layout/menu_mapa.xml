@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="smartgeeks.cholupafest.Menu.Mapa">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/tvTitleMapa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MAPA"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/size_title_categoria" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvTitleMapa"
+            android:background="@color/colorPrimary" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tvTitleMapa"
+            android:layout_marginBottom="20dp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

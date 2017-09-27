@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "549086587046",
+    "firebase_url": "https://chulupafest.firebaseio.com",
+    "project_id": "chulupafest",
+    "storage_bucket": "chulupafest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549086587046:android:f136340c4d96ab4d",
+        "android_client_info": {
+          "package_name": "smartgeeks.cholupafest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549086587046-b32dbfr5vs5vkdk951dd6lsfrfppd562.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS53soTDzNkTx7j3wTC7oLCRTDn9oA3h4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

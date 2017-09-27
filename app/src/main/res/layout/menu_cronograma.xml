@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    tools:context="smartgeeks.cholupafest.Menu.Cronograma">
+
+    <TextView
+        android:id="@+id/tvTitleCronograma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="CRONOGRAMA"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/size_title_categoria"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/tvTitleCronograma"
+        android:background="@color/colorPrimary"/>
+
+   <Spinner
+       android:id="@+id/spFecha"
+       android:layout_width="match_parent"
+       android:layout_height="40dp"
+       android:layout_below="@+id/tvTitleCronograma"
+       android:layout_marginTop="20dp"
+       android:background="@drawable/bg_spinner_categorias"
+       android:popupBackground="@drawable/bg_spinner_categorias_dropdown"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerviewFecha"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/spFecha"/>
+
+</RelativeLayout>
