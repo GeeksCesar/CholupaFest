@@ -7,10 +7,12 @@
     tools:context="smartgeeks.cholupafest.Menu.DetalleNoticia">
 
     <TextView
-        android:id="@+id/tvTitleActividad"
+        android:id="@+id/tvTitleANoticia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Actividad 1"
         android:textColor="@color/md_red_500"
         android:textSize="@dimen/size_title_categoria" />
@@ -27,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/contentButton"
-        android:layout_below="@+id/tvTitleActividad"
+        android:layout_below="@+id/tvTitleANoticia"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical"

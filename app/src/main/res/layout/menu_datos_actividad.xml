@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Actividad 1"
         android:textColor="@color/md_red_500"
         android:textSize="@dimen/size_title_categoria" />

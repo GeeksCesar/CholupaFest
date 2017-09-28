@@ -13,8 +13,10 @@
             android:id="@+id/tvTitleMapa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MAPA"
             android:layout_marginTop="2dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="MAPA"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/size_title_categoria" />
 

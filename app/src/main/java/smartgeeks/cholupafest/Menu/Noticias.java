@@ -31,6 +31,7 @@ import smartgeeks.cholupafest.Conexion.CheckConection;
 import smartgeeks.cholupafest.Conexion.WebService;
 import smartgeeks.cholupafest.Object.Noticia;
 import smartgeeks.cholupafest.R;
+import smartgeeks.cholupafest.adapter.RecyclerItemClickListener;
 import smartgeeks.cholupafest.adapter.noticiasAdapter;
 
 
@@ -42,6 +43,9 @@ public class Noticias extends Fragment {
     //VOLLEY
     JsonArrayRequest jsonArrayRequest;
     RequestQueue mRequestQueue;
+
+    int idNoticia;
+    String titleNoticia, descripcionNoticia, imgNoticia;
 
     TextView tvTitleNoticias;
     RecyclerView rvNoticia;
@@ -96,6 +100,31 @@ public class Noticias extends Fragment {
         });
 
         dataListNoticia();
+
+        //CLick Recyvlerview
+        rvNoticia.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void OnItemClick(View view, int position) {
+
+                idNoticia = noticiaList.get(position).getIdNotice();
+                titleNoticia = noticiaList.get(position).getTitleNotice();
+                descripcionNoticia = noticiaList.get(position).getDescripcionNotice();
+                imgNoticia = noticiaList.get(position).getUrlImgNotice();
+
+                DetalleNoticia detalleNoticia = new DetalleNoticia();
+                Bundle args = new Bundle();
+
+                args.putInt(DetalleNoticia.idNoticia, idNoticia);
+                args.putString(DetalleNoticia.titleNoticia, titleNoticia);
+                args.putString(DetalleNoticia.descripcionNoticia, descripcionNoticia);
+                args.putString(DetalleNoticia.imageNoticia, imgNoticia);
+
+                detalleNoticia.setArguments(args);
+
+                getFragmentManager().beginTransaction().replace(R.id.content, detalleNoticia, "DETALLE").commit();
+
+            }
+        }));
 
         return view;
     }
