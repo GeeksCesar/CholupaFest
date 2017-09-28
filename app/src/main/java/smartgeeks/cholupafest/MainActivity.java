@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import smartgeeks.cholupafest.Menu.Cronograma;
 import smartgeeks.cholupafest.Menu.Mapa;
 import smartgeeks.cholupafest.Menu.Noticias;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView navigation ;
 
+    String IdPhone;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationViewHelper.disableShiftMode(navigation);
 
+        FirebaseMessaging.getInstance().subscribeToTopic("fest");
+
         setFragment(0);
     }
 
@@ -76,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
 }
 
