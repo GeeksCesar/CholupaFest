@@ -2,10 +2,14 @@ package smartgeeks.cholupafest.Conexion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
@@ -19,9 +23,29 @@ import com.android.volley.VolleyError;
 
 public class CheckConection extends Activity {
 
-    public void notifySnackbar(View view, String title) {
-        Snackbar.make(view, title, Snackbar.LENGTH_LONG).show();
+    Snackbar snackbar;
+
+    public void showSnackAlert(View view, String textAlert){
+
+        snackbar = Snackbar.make(view, textAlert, Snackbar.LENGTH_SHORT);
+
+        View viewSnackar = snackbar.getView();
+
+        snackbar.setDuration(2000);
+
+        TextView mTextView = (TextView) viewSnackar.findViewById(android.support.design.R.id.snackbar_text);
+        viewSnackar.setBackgroundColor(Color.parseColor("#EC3143"));
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            mTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        else
+            mTextView.setGravity(Gravity.CENTER_HORIZONTAL);
+
+        snackbar.show();
     }
+
+
 
     public boolean verificaConexion(Context ctx) {
         boolean bConectado = false;

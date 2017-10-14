@@ -8,19 +8,28 @@ public class WebService {
 
     public static final String TAG = "Test";
 
-    private static final String IP = "http://domiciliosgbc.com/";
-    private static final String PROJECT = "webservice/";
+    private static final String IP = "http://smartgeeks.com.co/cholupafest/";
+    private static final String PROJECT = "Webservice/";
 
-    public static final String URL_DAY_VIERNES = IP + PROJECT + "viernes.json";
-    public static final String URL_DAY_SABADO = IP + PROJECT + "sabado.json";
-    public static final String URL_DAY_DOMINGO = IP + PROJECT + "domingo.json" ;
 
     public static final String URL_NOTICIAS = IP + PROJECT + "noticias.json" ;
 
+    public static final String SET_USUARIO = IP + PROJECT + "setUsuario.php";
+    public static final String SET_ASISTENCIA = IP + PROJECT + "setAsistencia.php";
+    public static final String CONSULTAR_ACTIVIDAD = IP + PROJECT + "consultarActividad.php?dia=";
+    public static final String CONSULTAR_ASISTENTES = IP + PROJECT + "consultarAsistentes.php?idActividad=";
+    public static final String CONSULTAR_NOTICIAS = IP + PROJECT + "consultarNoticias.php" ;
+    public static final String CONSULTAR_CODIGO = IP + PROJECT + "consultarCodigo.php?codigo=";
+    public static final String CONSULTAR_MAPA = IP + PROJECT + "mapa.php" ;
+
+
     //VARIABLES
     public static final String ID = "id";
-    public static final String TITLE = "title";
+    public static final String NOMBRE = "nombre";
     public static final String DESCRIPCION = "descripcion";
     public static final String HORA = "hora";
     public static final String IMG = "img";
+    public static final String MAX = "maxActividad";
+    public static final String DIA = "dia" ;
+    public static final String WEB = "web";
 }

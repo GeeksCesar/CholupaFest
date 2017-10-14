@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    android:id="@+id/contenedorRegistro"
+    tools:context="smartgeeks.cholupafest.Registro">
+
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:src="@mipmap/logo_cholupa_fest"/>
+
+
+    <EditText
+        android:id="@+id/edNombre"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_witdh_editext"
+        android:layout_below="@+id/ivLogo"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/size_margin_button"
+        android:layout_marginLeft="@dimen/size_margin_button"
+        android:inputType="text"
+        android:hint="Nombre"
+        android:gravity="center"
+        android:textSize="@dimen/size_text_edit"
+        android:textColor="@color/md_black_1000_50"
+        android:textColorHint="@color/md_black_1000_25"
+        android:background="@drawable/bg_editext_codigo"/>
+
+    <EditText
+        android:id="@+id/edTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_witdh_editext"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/edCorreo"
+        android:layout_marginRight="@dimen/size_margin_button"
+        android:layout_marginLeft="@dimen/size_margin_button"
+        android:inputType="phone"
+        android:hint="Telefono"
+        android:maxLength="10"
+        android:gravity="center"
+        android:textSize="@dimen/size_text_edit"
+        android:textColor="@color/md_black_1000_50"
+        android:textColorHint="@color/md_black_1000_25"
+        android:background="@drawable/bg_editext_codigo"/>
+
+    <EditText
+        android:id="@+id/edCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_witdh_editext"
+        android:layout_below="@+id/edNombre"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/size_margin_button"
+        android:layout_marginLeft="@dimen/size_margin_button"
+        android:inputType="textEmailAddress"
+        android:hint="Correo"
+        android:gravity="center"
+        android:textSize="@dimen/size_text_edit"
+        android:textColor="@color/md_black_1000_50"
+        android:textColorHint="@color/md_black_1000_25"
+        android:background="@drawable/bg_editext_codigo"/>
+
+
+    <Button
+        android:id="@+id/btnFinalizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="FINALIZAR"
+        android:textSize="@dimen/size_text_buton"
+        android:textColor="@color/md_white_1000"
+        android:layout_margin="@dimen/size_margin_btn_finalizar"
+        android:background="@drawable/btn_continuar"/>
+
+</RelativeLayout>

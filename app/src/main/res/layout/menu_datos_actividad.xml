@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:id="@+id/contenedor"
     tools:context="smartgeeks.cholupafest.Menu.DatosActividad">
 
     <TextView
@@ -67,11 +68,21 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/tvWebActividad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/card_size_descripcion"
+                        android:text="rubias19.com"
+                        android:textColor="@color/md_blue_500"/>
+
+                    <TextView
                         android:id="@+id/tvDescripcionActividad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvWebActividad"
                         android:padding="10dp"
-                        android:textSize="@dimen/card_size_descripcion" />
+                        android:textSize="@dimen/card_size_descripcion"
+                        android:textColor="@color/md_black_1000"/>
 
                 </RelativeLayout>
 
@@ -110,7 +121,8 @@
             android:layout_weight="5"
             android:background="@drawable/bg_button_asistir"
             android:text="ASISTIRE"
-            android:textSize="@dimen/size_button_actividad" />
+            android:textSize="@dimen/size_button_actividad"
+            android:alpha="100"/>
 
     </LinearLayout>
 

@@ -20,4 +20,12 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="size_title_categoria">40sp</dimen>
 
+    <dimen name="size_margin_button">30dp</dimen>
+    <dimen name="size_margin_btn_finalizar">20dp</dimen>
+    <dimen name="size_radius_button">15dp</dimen>
+    <dimen name="size_text_buton">18sp</dimen>
+    <dimen name="size_witdh_editext">50dp</dimen>
+    <dimen name="size_text_edit">20sp</dimen>
+    <dimen name="size_button_login">16sp</dimen>
+
 </resources>

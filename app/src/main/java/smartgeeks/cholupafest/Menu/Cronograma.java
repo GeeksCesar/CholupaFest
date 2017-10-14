@@ -16,8 +16,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
@@ -39,10 +43,10 @@ import smartgeeks.cholupafest.adapter.actividadesAdapter;
 public class Cronograma extends Fragment {
 
     View view;
-    String[] arrayStringDias = {"Viernes", "Sabado", "Domingo" };
+    String[] arrayStringDias = {"VIERNES", "SABADO", "DOMINGO" };
     Spinner spinnerDays ;
 
-    CheckConection conection ;
+    CheckConection conection = new CheckConection();
 
     RecyclerView recyclerViewFecha;
     RecyclerView.LayoutManager layoutManager;
@@ -56,9 +60,10 @@ public class Cronograma extends Fragment {
     //VOLLEY
     JsonArrayRequest jsonArrayRequest;
     RequestQueue mRequestQueue;
+    String Url;
 
-    String titleActividad, descripcionActividad, imgActividad ;
-    int idActividad ;
+    String titleActividad, descripcionActividad, imgActividad, webActividad, horaActividad;
+    int idActividad, maxActividad ;
 
     TextView tvTitleCronograma;
     Typeface font ;
@@ -100,13 +105,7 @@ public class Cronograma extends Fragment {
                 daySelected = String.valueOf(parent.getItemAtPosition(position));
                 Log.d("TAG", "day Selected: "+daySelected);
 
-                if (daySelected.equals("Viernes")){
-                    dataListCronograma(WebService.URL_DAY_VIERNES);
-                }else if (daySelected.equals("Sabado")){
-                    dataListCronograma(WebService.URL_DAY_SABADO);
-                }else if (daySelected.equals("Domingo")){
-                    dataListCronograma(WebService.URL_DAY_DOMINGO);
-                }
+                dataListCronograma(daySelected);
 
             }
 
@@ -121,10 +120,13 @@ public class Cronograma extends Fragment {
             @Override
             public void OnItemClick(View view, int position) {
 
-                idActividad = actividadList.get(position).getIdCronograma();
-                titleActividad = actividadList.get(position).getTitle();
-                descripcionActividad = actividadList.get(position).getDescripcion();
+                idActividad = actividadList.get(position).getIdActividad();
+                titleActividad = actividadList.get(position).getNameActividad();
+                descripcionActividad = actividadList.get(position).getDescActividad();
+                horaActividad = actividadList.get(position).getHoraActividad();
                 imgActividad = actividadList.get(position).getUrlImgActividad();
+                webActividad = actividadList.get(position).getWebActividad();
+                maxActividad = actividadList.get(position).getMaxActividad();
 
                 DatosActividad datosActividad = new DatosActividad();
                 Bundle args = new Bundle();
@@ -133,6 +135,9 @@ public class Cronograma extends Fragment {
                 args.putString(DatosActividad.titleActividad, titleActividad);
                 args.putString(DatosActividad.descripcionActividad, descripcionActividad);
                 args.putString(DatosActividad.imgActividad, imgActividad);
+                args.putString(DatosActividad.horaActividad, horaActividad);
+                args.putInt(DatosActividad.maxActividad, maxActividad);
+                args.putString(datosActividad.webActividad, webActividad);
 
                 datosActividad.setArguments(args);
 
@@ -148,14 +153,15 @@ public class Cronograma extends Fragment {
     }
 
 
-    private void dataListCronograma(String URL){
+    private void dataListCronograma(String diaSelected){
 
-        Log.d(WebService.TAG, "URl: "+URL);
+        Url = WebService.CONSULTAR_ACTIVIDAD + diaSelected ;
+
         actividadList.clear();
 
         mRequestQueue = Volley.newRequestQueue(getActivity()) ;
 
-        jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+        jsonArrayRequest = new JsonArrayRequest(Url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 setRecyclerViewFecha(response);
@@ -163,7 +169,15 @@ public class Cronograma extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if (error instanceof TimeoutError){
 
+                }else if (error instanceof NetworkError){
+
+                }else if (error instanceof ServerError){
+
+                }else if (error instanceof NoConnectionError){
+
+                }
             }
         }) ;
 
@@ -172,21 +186,24 @@ public class Cronograma extends Fragment {
     }
 
     private void setRecyclerViewFecha(JSONArray array){
-        Log.d(WebService.TAG, "json Cronograma :"+ array);
+
         if (array.length() > 0 ){
             for (int i = 0; i< array.length(); i++){
-                    Actividad actividad = new Actividad();
+                Actividad actividad = new Actividad();
 
                 JSONObject json = null;
 
                 try {
                     json = array.getJSONObject(i);
 
-                    actividad.setIdCronograma(json.getInt(WebService.ID));
-                    actividad.setTitle(json.getString(WebService.TITLE));
-                    actividad.setDescripcion(json.getString(WebService.DESCRIPCION));
-                    actividad.setHora(json.getString(WebService.HORA));
+                    actividad.setIdActividad(json.getInt(WebService.ID));
+                    actividad.setMaxActividad(json.getInt(WebService.MAX));
+                    actividad.setNameActividad(json.getString(WebService.NOMBRE));
+                    actividad.setDescActividad(json.getString(WebService.DESCRIPCION));
+                    actividad.setHoraActividad(json.getString(WebService.HORA));
                     actividad.setUrlImgActividad(json.getString(WebService.IMG));
+                    actividad.setDiaActicidad(json.getString(WebService.DIA));
+                    actividad.setWebActividad(json.getString(WebService.WEB));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

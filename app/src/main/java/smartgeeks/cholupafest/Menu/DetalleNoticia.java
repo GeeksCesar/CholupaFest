@@ -124,7 +124,7 @@ public class DetalleNoticia extends Fragment {
                 ShareLinkContent linkContent = new ShareLinkContent.Builder()
                         .setContentTitle("CholupaFest")
                         .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=smartgeeks.pbapp1&hl=es"))
-                        .setQuote("Asistire a el evento")
+                        .setQuote(getDescripcionNoticia)
                         .build();
                 shareDialog.show(linkContent);
             }

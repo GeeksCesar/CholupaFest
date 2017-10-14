@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+import smartgeeks.cholupafest.Conexion.WebService;
 import smartgeeks.cholupafest.R;
 
 
@@ -36,7 +37,7 @@ public class Mapa extends Fragment {
         font = Typeface.createFromAsset(getActivity().getAssets(), "blowbrush.ttf");
         tvTitleMapa.setTypeface(font);
 
-        myWebView.loadUrl("http://domiciliosgbc.com/mapa.php");
+        myWebView.loadUrl(WebService.CONSULTAR_MAPA);
         myWebView.getSettings().setJavaScriptEnabled(true);
 
 

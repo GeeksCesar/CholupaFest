@@ -135,7 +135,7 @@ public class Noticias extends Fragment {
 
         mRequestQueue = Volley.newRequestQueue(getActivity());
 
-        jsonArrayRequest = new JsonArrayRequest(WebService.URL_NOTICIAS, new Response.Listener<JSONArray>() {
+        jsonArrayRequest = new JsonArrayRequest(WebService.CONSULTAR_NOTICIAS, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
                 dataNoticias(jsonArray);
@@ -164,7 +164,7 @@ public class Noticias extends Fragment {
                     json = array.getJSONObject(i);
 
                     noticia.setIdNotice(json.getInt(WebService.ID));
-                    noticia.setTitleNotice(json.getString(WebService.TITLE));
+                    noticia.setTitleNotice(json.getString(WebService.NOMBRE));
                     noticia.setDescripcionNotice(json.getString(WebService.DESCRIPCION));
                     noticia.setUrlImgNotice(json.getString(WebService.IMG));
 

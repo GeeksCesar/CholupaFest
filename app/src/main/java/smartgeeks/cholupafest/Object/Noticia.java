@@ -13,12 +13,7 @@ public class Noticia {
     public Noticia() {
     }
 
-    public Noticia(int idNotice, String titleNotice, String descripcionNotice, String urlImgNotice) {
-        this.idNotice = idNotice;
-        this.titleNotice = titleNotice;
-        this.descripcionNotice = descripcionNotice;
-        this.urlImgNotice = urlImgNotice;
-    }
+
 
     public int getIdNotice() {
         return idNotice;

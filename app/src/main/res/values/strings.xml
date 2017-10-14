@@ -11,6 +11,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--Prefrerences Usuario -->
+    <string name="Datos_Usuario">Usuario</string>
+    <string name="state_usuario">stateUser</string>
+    <string name="codigo_usuario">codUser</string>
+
     <!-- Preferences Firebae -->
     <string name="FCM_PREFERENCE">cm_pref</string>
     <string name="FCM_TOKEN">fcm_token</string>
@@ -22,4 +27,17 @@
     <string name="title_activity_principal">Principal</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+
+    <!--Alertas -->
+    <string name="alert_edit_empty">Falta información importante</string>
+    <string name="alert_telefono">Verfique su numero telefono</string>
+    <string name="alert_codigo_empty">Ingresa tu codigo</string>
+    <string name="alert_codigo_no_valido">Código incorrecto</string>
+    <string name="alert_codigo_ya_existe">Ya esta registrado en esta actividad.</string>
+    <string name="alert_no_codigo_empty">Debes Registarse, no tiene codigo</string>
+    <string name="alert_max_asistenetes">Perdona, no hay cupo disponible</string>
+    <string name="alert_actividad_exito">Te inscribiste exitosamente a la actividad</string>
+    <string name="alert_no_conexion">No estas conectado a Internet</string>
+
 </resources>

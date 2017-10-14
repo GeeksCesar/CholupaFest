@@ -1,5 +1,8 @@
 package smartgeeks.cholupafest;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,8 +12,6 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.firebase.messaging.FirebaseMessaging;
-
 import smartgeeks.cholupafest.Menu.Cronograma;
 import smartgeeks.cholupafest.Menu.Mapa;
 import smartgeeks.cholupafest.Menu.Noticias;
@@ -19,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView navigation ;
 
-    String IdPhone;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+    Boolean sessionIniciada = false;
+
+    String  session;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -54,9 +59,27 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationViewHelper.disableShiftMode(navigation);
 
-        FirebaseMessaging.getInstance().subscribeToTopic("fest");
+        preferences = getSharedPreferences(getString(R.string.Datos_Usuario), Context.MODE_PRIVATE);
+        session = preferences.getString(getString(R.string.state_usuario), "SessionFailed");
 
-        setFragment(0);
+        if (session.equals("SessionSucces")){
+            sessionIniciada = true;
+        }
+
+        validarLogin();
+
+        setFragment(1);
+    }
+
+
+    private void validarLogin(){
+        if (sessionIniciada){
+            setFragment(0);
+        } else if (session.equals("SessionUserReg")) {
+            setFragment(1);
+        } else {
+            screenLogin();
+        }
     }
 
 
@@ -81,6 +104,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    private void screenLogin(){
+        preferences = getSharedPreferences(getString(R.string.Datos_Usuario), Context.MODE_PRIVATE);
+        editor = preferences.edit();
+
+        editor.putString(getString(R.string.state_usuario),"SessionFailed");
+        editor.commit();
+
+        startActivity(new Intent(MainActivity.this, Login.class));
+        finish();
+    }
+
 
 
 }

@@ -6,18 +6,58 @@ package smartgeeks.cholupafest.Object;
 
 public class Actividad {
 
-    int idCronograma;
-    String title, hora, descripcion, UrlImgActividad;
+    int idActividad, maxActividad;
+    String nameActividad, horaActividad, descActividad, diaActicidad,UrlImgActividad, webActividad;
 
     public Actividad() {
     }
 
-    public Actividad(int idCronograma, String title, String hora, String descripcion, String urlImgActividad) {
-        this.idCronograma = idCronograma;
-        this.title = title;
-        this.hora = hora;
-        this.descripcion = descripcion;
-        UrlImgActividad = urlImgActividad;
+    public int getIdActividad() {
+        return idActividad;
+    }
+
+    public void setIdActividad(int idActividad) {
+        this.idActividad = idActividad;
+    }
+
+    public String getNameActividad() {
+        return nameActividad;
+    }
+
+    public void setNameActividad(String nameActividad) {
+        this.nameActividad = nameActividad;
+    }
+
+    public String getHoraActividad() {
+        return horaActividad;
+    }
+
+    public void setHoraActividad(String horaActividad) {
+        this.horaActividad = horaActividad;
+    }
+
+    public String getDescActividad() {
+        return descActividad;
+    }
+
+    public void setDescActividad(String descActividad) {
+        this.descActividad = descActividad;
+    }
+
+    public int getMaxActividad() {
+        return maxActividad;
+    }
+
+    public void setMaxActividad(int maxActividad) {
+        this.maxActividad = maxActividad;
+    }
+
+    public String getDiaActicidad() {
+        return diaActicidad;
+    }
+
+    public void setDiaActicidad(String diaActicidad) {
+        this.diaActicidad = diaActicidad;
     }
 
     public String getUrlImgActividad() {
@@ -28,35 +68,11 @@ public class Actividad {
         UrlImgActividad = urlImgActividad;
     }
 
-    public int getIdCronograma() {
-        return idCronograma;
+    public String getWebActividad() {
+        return webActividad;
     }
 
-    public void setIdCronograma(int idCronograma) {
-        this.idCronograma = idCronograma;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setWebActividad(String webActividad) {
+        this.webActividad = webActividad;
     }
 }

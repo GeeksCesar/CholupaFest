@@ -38,8 +38,8 @@ public class actividadesAdapter extends RecyclerView.Adapter<actividadesAdapter.
     public void onBindViewHolder(viewHolder holder, int position) {
         Actividad actividad = actividadList.get(position);
 
-        holder.tvTitle.setText(actividad.getTitle());
-        holder.tvHora.setText(actividad.getHora());
+        holder.tvTitle.setText(actividad.getNameActividad());
+        holder.tvHora.setText(actividad.getHoraActividad());
 
     }
 
