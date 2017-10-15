@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                     setFragment(2);
                     return true;
             }
+
+
+
             return false;
         }
 
@@ -56,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         BottomNavigationViewHelper.disableShiftMode(navigation);
+
+        Menu menu = ((BottomNavigationView) findViewById(R.id.navigation)).getMenu();
+        menu.findItem(R.id.navigation_cronograma).setChecked(true);
 
         preferences = getSharedPreferences(getString(R.string.Datos_Usuario), Context.MODE_PRIVATE);
         session = preferences.getString(getString(R.string.state_usuario), "SessionFailed");

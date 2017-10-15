@@ -71,15 +71,15 @@
                         android:id="@+id/tvWebActividad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvDescripcionActividad"
                         android:textSize="@dimen/card_size_descripcion"
-                        android:text="rubias19.com"
+                        android:padding="10dp"
                         android:textColor="@color/md_blue_500"/>
 
                     <TextView
                         android:id="@+id/tvDescripcionActividad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvWebActividad"
                         android:padding="10dp"
                         android:textSize="@dimen/card_size_descripcion"
                         android:textColor="@color/md_black_1000"/>

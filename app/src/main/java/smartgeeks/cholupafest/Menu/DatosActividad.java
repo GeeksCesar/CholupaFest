@@ -214,11 +214,10 @@ public class DatosActividad extends Fragment {
                     conection.showSnackAlert(contenedorView, getResources().getString(R.string.alert_codigo_ya_existe));
                 } else {
                     conection.showSnackAlert(contenedorView, getResources().getString(R.string.alert_actividad_exito));
+                    Fragment fragment = null;
+                    fragment = new Cronograma();
+                    getFragmentManager().beginTransaction().replace(R.id.content, fragment, "ACTIVIDAD").commit();
                 }
-                Fragment fragment = null;
-                fragment = new Cronograma();
-                getFragmentManager().beginTransaction().replace(R.id.content, fragment, "ACTIVIDAD").commit();
-
             }
         }, new Response.ErrorListener() {
             @Override

@@ -34,7 +34,7 @@ public class CheckConection extends Activity {
         snackbar.setDuration(2000);
 
         TextView mTextView = (TextView) viewSnackar.findViewById(android.support.design.R.id.snackbar_text);
-        viewSnackar.setBackgroundColor(Color.parseColor("#EC3143"));
+        viewSnackar.setBackgroundColor(Color.parseColor("#FFBB02"));
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
