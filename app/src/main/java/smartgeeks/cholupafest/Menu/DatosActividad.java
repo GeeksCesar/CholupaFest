@@ -148,19 +148,20 @@ public class DatosActividad extends Fragment {
             btnAsistir.setEnabled(true);
         }
 
-
         tvWebActividad.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                Uri webpage = Uri.parse(getWebActividad);
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                intent.setPackage("com.facebook.katana");
+
                 try {
-                    Uri webpage = Uri.parse(getWebActividad);
-
-                    Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                     startActivity(intent);
-
                 } catch (ActivityNotFoundException e) {
-                    conection.showSnackAlert(v, "Instala chrome");
                     e.printStackTrace();
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse(getWebActividad)));
                 }
             }
         });

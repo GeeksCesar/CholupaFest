@@ -123,7 +123,7 @@ public class DetalleNoticia extends Fragment {
             if (ShareDialog.canShow(ShareLinkContent.class)) {
                 ShareLinkContent linkContent = new ShareLinkContent.Builder()
                         .setContentTitle("CholupaFest")
-                        .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=smartgeeks.pbapp1&hl=es"))
+                        .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=smartgeeks.cholupafest&hl=es"))
                         .setQuote(getDescripcionNoticia)
                         .build();
                 shareDialog.show(linkContent);
